@@ -67,18 +67,16 @@ print(", ".join(mylist))
 x = random.randint(1,20)
 print(x)
 start = datetime.now().second
-t = start+5
 istrue = True
-while datetime.now().second<=t:
-    if datetime.now().second<=t:
-        myinput = int(input("Sheiyv: "))
-        if myinput == x:
-            print("CORRECT!!!")
-            istrue = False
-            break
-
-if istrue:
-    print("დრო ამოიწურა, თქვენ დამარცხდით")
+myinput = int(input("შეიყვანე რიცხვი სწრაფად: "))
+while True:
+    if datetime.now().second - start > 5:
+        print("დრო ამოიწურა, თქვენ დამარცხდით")
+        quit()
+    if myinput == x:
+        print("CORRECT!!!")
+        break
+    myinput = int(input("შეიყვანე რიცხვი სწრაფად: "))
 
 ## 8 ორი მოთამაშე იწყებს "გარბენს". უნდა შეამოწმო რომელი დაასრულებს ნაკლებ დროში
 start = timedelta(seconds=0)
